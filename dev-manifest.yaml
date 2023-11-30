@@ -36,8 +36,8 @@ spec:
             - name: REDIS_PASSWORD
               valueFrom:
                 secretKeyRef:
-                 name: josh-twilio-dev
-                  key: 831b4969-6f86-4437-acfd-ea43eb991564
+                  name: redis-secrets-josh
+                  key: REDIS_PASS
             - name: REDIS_HOST
               value: "redis-stedi-josh"
             - name: REDIS_PORT
@@ -50,7 +50,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: josh-twilio-dev
-                  key: 831b4969-6f86-4437-acfd-ea43eb991564
+                  key: twilio_token
 # The ports is a list of tcp ports the pod listens on
           ports:
 # ContainerPort is a specific port the pod listens on
