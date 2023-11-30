@@ -28,8 +28,8 @@ spec:
                 name: redis-secrets-josh
                 key: REDIS_PASS
           volumeMounts:
-            - name: josh-twilio-dev
-              mountPath: twilio_token
+            - name: redis-josh-volume
+              mountPath: /data
   volumeClaimTemplates:
   - metadata:
       name: redis-josh-volume
