@@ -62,13 +62,13 @@ spec:
 # CPU is the max amount of CPU that can be used by the pod
               cpu: ".2"
 # Memory is the max amount of memory that can be used by the pod              
-              memory: "500Mi"
+              memory: "100Mi"
 # Requests is the minimum amount of compute resources used by the pod
             requests:
 # CPU is the minimum amount of CPU the pod needs to run
-              cpu: ".25"
+              cpu: ".1"
 # Memory is the minimum amount of memory the pod needs to run              
-              memory: "250Mi"
+              memory: "80Mi"
 # LivenessProbe is a configuration that checks the pod for health
           livenessProbe:
 # HttpGet instructs kubernetes to do an HTTP request to check health
