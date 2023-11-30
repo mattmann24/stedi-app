@@ -37,7 +37,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                  name: josh-twilio-dev
-                  key: twilio_token
+                  key: 831b4969-6f86-4437-acfd-ea43eb991564
             - name: REDIS_HOST
               value: "redis-stedi-josh"
             - name: REDIS_PORT
