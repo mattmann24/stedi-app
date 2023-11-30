@@ -60,9 +60,9 @@ spec:
 # Limits represent the max amount of cpu and memory allowed for the pod           
             limits:
 # CPU is the max amount of CPU that can be used by the pod
-              cpu: ".1"
+              cpu: ".2"
 # Memory is the max amount of memory that can be used by the pod              
-              memory: "100Mi"
+              memory: "200Mi"
 # Requests is the minimum amount of compute resources used by the pod
             requests:
 # CPU is the minimum amount of CPU the pod needs to run
