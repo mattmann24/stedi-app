@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: redis-stedi-josh
+  name: redis-stedi-matt
 spec:
   selector:
     matchLabels:
-      app: redis-stedi-josh  # has to match .spec.template.metadata.labels
-  serviceName: redis-stedi-josh
+      app: redis-stedi-matt  # has to match .spec.template.metadata.labels
+  serviceName: redis-stedi-matt
   replicas: 1
   template:
     metadata:
       labels:
-        app: redis-stedi-josh  # has to match .spec.selector.matchLabels
+        app: redis-stedi-matt  # has to match .spec.selector.matchLabels
     spec:
       containers:
-        - name: redis-stedi-josh
+        - name: redis-stedi-matt
           image: redis:7.0.5-alpine
           imagePullPolicy: Always
           args: ["--requirepass", "$(REDIS_PASS)", "--appendonly", "yes", "--save", "900", "1", "--save", "30", "2"]
@@ -25,14 +25,14 @@ spec:
           - name: REDIS_PASS
             valueFrom:
               secretKeyRef:
-                name: redis-secrets-josh
+                name: redis-secrets-matt
                 key: REDIS_PASS
           volumeMounts:
             - name: redis-josh-volume
               mountPath: /data
   volumeClaimTemplates:
   - metadata:
-      name: redis-josh-volume
+      name: redis-matt-volume
     spec:
       accessModes:
         - ReadWriteOnce
@@ -43,11 +43,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: redis-stedi-josh
+  name: redis-stedi-matt
 spec:
   ports:
     - port: 6379
       name: redis
   clusterIP: None
   selector:
-    app: redis-stedi-josh
+    app: redis-stedi-matt
